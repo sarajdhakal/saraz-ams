@@ -24,6 +24,100 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+      .item {
+      display: none;
+    }
+  
+    .show {
+      display: block;
+    }
+
+    #filter-options {
+      margin: 20px;
+      text-align: center;
+    }
+    #filter-options select{
+      border-radius: 5px;
+      background-color: aliceblue;
+      
+    }
+    #filter-options label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #filterable-div {
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 576px) {
+      #filter-options select {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media screen and (min-width: 577px) and (max-width: 768px) {
+      #filter-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+      }
+
+      #filter-options select {
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+      #filter-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+      }
+
+      #filter-options select {
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 993px) and (max-width: 1200px) {
+      #filter-options {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+      }
+
+      #filter-options select {
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 1201px) and (max-width: 1400px) {
+      #filter-options {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+      }
+
+      #filter-options select {
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 1401px) {
+      #filter-options {
+        display: flex;
+        justify-content: center;
+      }
+
+      #filter-options select {
+        margin: 0 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -44,23 +138,7 @@
         <li><a class="active" href="alumni.html">Alumni</a></li>
         <li><a href="events.html">Events</a></li>
 
-        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-              <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
-          </ul>
-        </li>
+      
         <li><a href="login_page.html"> Logout</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
@@ -78,51 +156,54 @@
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Trainers Section ======= -->
+    <div id="filter-options">
+      <label for="university-select">University:</label>
+      <select id="university-select">
+        <option value="all" selected>All</option>
+        <option value="pokhara"> Pokhara University</option>
+        <option value="tu">tu University</option>
+      </select>
+      
+      <label for="school-select">College:</label>
+      <select id="school-select">
+        <option value="all" selected>All</option>
+        <option value="utc">Utc </option>
+        <option value="tuc">TUC</option>
+      </select>
+      
+      <label for="faculty-select">Faculty:</label>
+      <select id="faculty-select">
+        <option value="all" selected>All</option>
+        <option value="computer">Computer </option>
+        <option value="civil">civil</option>
+        <option value="elec">electrical</option>
+      </select>
+    </div>
+
+    <!-- ======= Alumni Section ======= -->
     <section id="trainers" class="trainers">
       <div class="container" data-aos="fade-up">
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Walter White</h4>
-                <span>Web Development</span>
-                <p>
-                  Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
+          <!-- <div id="filterable-div"> -->
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="item pokhara utc computer">
+                    <div class="member">
+                      <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                      <div class="member-content">
+                        <h4>Walter White</h4>
+                        <span>Web Development</span>
+                        <p>
+                          Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                        </p>
+                      </div>
+                    </div>
+                  </div>
             </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Sarah Jhinson</h4>
-                <span>Marketing</span>
-                <p>
-                  Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
+         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="item pokhara utc civil">utc2
+                        <div class="member">
               <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>William Anderson</h4>
@@ -130,17 +211,34 @@
                 <p>
                   Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
                 </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
+            </div>
 
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="item tu tuc computer">utc1              
+                <div class="member">
+                  <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Sarah Jhinson</h4>
+                    <span>Marketing</span>
+                    <p>
+                      Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                    </p>
+                   </div>
+                </div>
+              </div>
+                 </div>
+
+            <!-- <div class="item tu tuc computer">tuc 1</div>
+            <div class="item tu tuc civil">tuc2 </div>
+            <div class="item pokhara utc elec">utc 3</div>
+            <div class="item tu tuc elec">tuc3</div> -->
+            
+            <!-- Add more faculties under each school as needed -->
           
+          <!-- </div>filterable-div -->
 
         </div>
 
@@ -197,6 +295,50 @@
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+  <script>
+    // Get the necessary elements
+    const universitySelect = document.getElementById('university-select');
+    const schoolSelect = document.getElementById('school-select');
+    const facultySelect = document.getElementById('faculty-select');
+    const items = document.getElementsByClassName('item');
+  
+    // Attach event listener to university select
+    universitySelect.addEventListener('change', filterItems);
+    
+    // Attach event listener to school select
+    schoolSelect.addEventListener('change', filterItems);
+  
+    // Attach event listener to faculty select
+    facultySelect.addEventListener('change', filterItems);
+  
+    // Function to filter items based on selected options
+    function filterItems() {
+      const selectedUniversity = universitySelect.value;
+      const selectedSchool = schoolSelect.value;
+      const selectedFaculty = facultySelect.value;
+    
+      // Loop through items and show/hide based on selected options
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const university = item.classList.contains(selectedUniversity) || selectedUniversity === 'all';
+        const school = item.classList.contains(selectedSchool) || selectedSchool === 'all';
+        const faculty = item.classList.contains(selectedFaculty) || selectedFaculty === 'all';
+    
+        if (university && school && faculty) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      }
+    }
+  
+    // Display all items initially
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      item.classList.add('show');
+    }
+  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
